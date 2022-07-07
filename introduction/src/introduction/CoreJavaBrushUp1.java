@@ -20,6 +20,7 @@ public class CoreJavaBrushUp1 {
 		arr[2] = 4;
 		arr[3] = 5;
 		arr[4] = 6;
+	
 		
 		int[] arr2 = {1,2,4,5,6,7,8,9,9,10,122};
 		

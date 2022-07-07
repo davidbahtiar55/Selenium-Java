@@ -1,5 +1,7 @@
 package introduction;
 
+import java.util.ArrayList;
+
 public class CoreJavaBrushUp2 {
 
 	public static void main(String[] args) {
@@ -19,6 +21,14 @@ public class CoreJavaBrushUp2 {
 				System.out.println(arr2[i] + "is not multiple of 2");
 			}
 		}
+		ArrayList<String> a = new ArrayList<String>();
+		a.add("david");
+		a.add("bahtiar");
+		a.add("java");
+		a.add("selenium");
+		System.out.print(a.get(3));
+		//create object of the class - object.method
+		
 	}
 
 }
