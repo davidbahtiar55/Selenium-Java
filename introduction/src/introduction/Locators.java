@@ -14,5 +14,6 @@ public class Locators {
 		driver.findElement(By.name("inputPassword")).sendKeys("admin123");
 		driver.findElement(By.className("signInBtn")).click();
 
+
 }
 }
