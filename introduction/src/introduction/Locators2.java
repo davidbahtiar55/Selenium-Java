@@ -9,11 +9,11 @@ import org.testng.Assert;
 
 public class Locators2 {
 	public static void main(String[] args) throws InterruptedException{
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.http.factory", "jdk-http-client");
 		WebDriver driver = new ChromeDriver();
 		String name = "David";
-		String password = "rahulshettyacademy";
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		String password = getPassword(driver);
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		driver.findElement(By.id("inputUsername")).sendKeys(name);
 		driver.findElement(By.name("inputPassword")).sendKeys(password);
@@ -25,11 +25,16 @@ public class Locators2 {
 		driver.findElement(By.xpath("//*[text()='Log Out']")).click();
 		driver.close();
 }
-	public void getPassword(WebDriver driver) throws InterruptedException {
+	public static String getPassword(WebDriver driver) throws InterruptedException {
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		driver.findElement(By.linkText("Forgot your password?")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
-		System.out.println(driver.findElement(By.cssSelector("form p")).getText());
+		String passwordText=(driver.findElement(By.cssSelector("form p")).getText());
+		String[] passwordArray = passwordText.split("'");
+		String password = passwordArray[1].split("'")[0];
+		return password;
+		//0th index - Please use temporary password
+		//1st index - rahulshettycademy  to Login.
 	}
 }
